@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  interview.apilayer:
+    image: ${DOCKER_REGISTRY-}interviewapilayer
+    build:
+      context: .
+      dockerfile: Interview.APILayer/Dockerfile
+
+  recruiting.apilayer:
+    image: ${DOCKER_REGISTRY-}recruitingapilayer
+    hostname: "recrutingapi"
+    build:
+      context: .
+      dockerfile: Recruiting.APILayer/Dockerfile
+
+
+  onboarding.apilayer:
+    image: ${DOCKER_REGISTRY-}onboardingapilayer
+    build:
+      context: .
+      dockerfile: Onboarding.APILayer/Dockerfile
+
+
+  apigatewaylayer:
+    image: ${DOCKER_REGISTRY-}apigatewaylayer
+    build:
+      context: .
+      dockerfile: APIGatewayLayer/Dockerfile
+    ports:
+        - "8001:80"
+

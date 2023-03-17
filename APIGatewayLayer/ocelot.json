@@ -1,0 +1,59 @@
+{
+    "Routes": [
+        //Recruiting api
+        //Canidate controller
+        {
+            "UpstreamPathTemplate": "/api/candidate",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "recrutingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/candidate"
+        },
+        {
+            "UpstreamPathTemplate": "/api/candidate/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "recrutingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/candidate/{id}"
+        },
+        //Recruiting api  -- jobrequirementcontroller
+        {
+            "UpstreamPathTemplate": "/api/jobrequirement",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "recrutingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/jobrequirement"
+        },
+        {
+            "UpstreamPathTemplate": "/api/jobrequirement/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "recrutingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/jobrequirement/{id}"
+        }
+
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:8001"
+    }
+}
