@@ -18,7 +18,6 @@ builder.Services.AddDbContext<InterviewDbContext>(option =>
     option.UseSqlServer(Environment.GetEnvironmentVariable("InterviewApiDbDocker"));
 });
 
-
 builder.Services.AddScoped<IFeedbackRepositoryAsync, FeedbackRepositoryAsync>();
 builder.Services.AddScoped<IFeedbackServiceAsync, FeedbackServiceAsync>();
 builder.Services.AddScoped<IInterviewTypeRepositoryAsync, InterviewTypeRepositoryAsync>();
@@ -37,9 +36,12 @@ builder.Services.AddCors(options =>
     });
 });
 var app = builder.Build();
+app.UseAuthentication();
 app.UseRouting();//middleware
-app.UseEndpoints(endpoint => { endpoint.MapControllers(); });
 app.UseCors();
+app.UseAuthorization();
+app.UseEndpoints(endpoint => { endpoint.MapControllers(); });
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

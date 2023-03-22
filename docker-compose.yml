@@ -3,6 +3,7 @@ version: '3.4'
 services:
   interview.apilayer:
     image: ${DOCKER_REGISTRY-}interviewapilayer
+    hostname: "interviewapi"
     build:
       context: .
       dockerfile: Interview.APILayer/Dockerfile
@@ -29,4 +30,12 @@ services:
       dockerfile: APIGatewayLayer/Dockerfile
     ports:
         - "8001:80"
+
+
+  authentication.apilayer:
+    image: ${DOCKER_REGISTRY-}authenticationapilayer
+    hostname: "authenticationapi"
+    build:
+      context: .
+      dockerfile: Authentication.APILayer/Dockerfile
 

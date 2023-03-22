@@ -4,9 +4,11 @@ using Interview.Infrastruction.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Interview.ApplicationCore.HttpModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Interview.APILayer.Controller
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class InterviewsController : ControllerBase

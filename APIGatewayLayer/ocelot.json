@@ -12,7 +12,11 @@
                     "Port": 80
                 }
             ],
-            "DownstreamPathTemplate": "/api/candidate"
+            "DownstreamPathTemplate": "/api/candidate",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
         },
         {
             "UpstreamPathTemplate": "/api/candidate/{id}",
@@ -50,6 +54,35 @@
                 }
             ],
             "DownstreamPathTemplate": "/api/jobrequirement/{id}"
+        },
+        {
+            "UpstreamPathTemplate": "/api/Account",
+            "UpstreamHttpMethod": [ "Post" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authenticationapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Account"
+        },
+        {
+            "UpstreamPathTemplate": "/api/Interviews",
+            "UpstreamHttpMethod": [ "Get" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Interviews",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
         }
 
     ],

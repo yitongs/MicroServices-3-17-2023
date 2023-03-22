@@ -1,3 +1,4 @@
+using JwtAuthenticationManager;
 using Microsoft.EntityFrameworkCore;
 using Recruiting.ApplicationCore.Contract.Repository;
 using Recruiting.ApplicationCore.Contract.Service;
@@ -12,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddCustomJwtAuthentication();
 
 builder.Services.AddDbContext<RecruitingDbContext>(option =>
 {
@@ -40,7 +42,9 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+app.UseAuthentication();
 app.UseRouting();//middleware
+app.UseAuthorization();
 app.UseCors();
 app.UseEndpoints(endpoint => { endpoint.MapControllers(); });
 

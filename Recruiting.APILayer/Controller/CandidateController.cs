@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Recruiting.ApplicationCore.Contract.Service;
 using Recruiting.ApplicationCore.Model.Request;
@@ -6,6 +7,7 @@ using Recruiting.Infrastruction.Service;
 
 namespace Recruiting.APILayer.Controller
 {
+    [Authorize(Roles ="Admin,Manager")]
     [Route("api/[controller]")]
     [ApiController]
     public class CandidateController : ControllerBase
