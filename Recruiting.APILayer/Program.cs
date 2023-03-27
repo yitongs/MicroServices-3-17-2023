@@ -17,8 +17,8 @@ builder.Services.AddCustomJwtAuthentication();
 
 builder.Services.AddDbContext<RecruitingDbContext>(option =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("RecruitingApiDbDocker"));
-    //option.UseSqlServer(Environment.GetEnvironmentVariable("RecruitingApiDbDocker"));
+    //option.UseSqlServer(builder.Configuration.GetConnectionString("RecruitingApiDbDocker"));
+    option.UseSqlServer(Environment.GetEnvironmentVariable("RecruitingApiDbDocker"));
     //option.UseSqlServer(Environment.GetEnvironmentVariable("RecruitingApiAzure"));
     //option.UseSqlServer(builder.Configuration.GetConnectionString("RecruitingApiAzure"));
 });
@@ -44,8 +44,8 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 app.UseAuthentication();
 app.UseRouting();//middleware
-app.UseAuthorization();
 app.UseCors();
+app.UseAuthorization();
 app.UseEndpoints(endpoint => { endpoint.MapControllers(); });
 
 

@@ -3,7 +3,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
-ENV RecruitingApiDbDocker="Data Source=10.0.0.86,1433;Initial Catalog = RecruitingApiDb;Persist Security Info=True;User ID=sa;Password=Admin@1234; TrustServerCertificate=True;"
+ENV RecruitingApiDbDocker="Data Source=192.168.1.179,1433;Initial Catalog = RecruitingApiDb;Persist Security Info=True;User ID=sa;Password=Admin@1234; TrustServerCertificate=True;"
 ENV RecruitingApiAzure="Server=tcp:recruitingdbysun.database.windows.net,1433;Initial Catalog=RecruitingDB;Persist Security Info=False;User ID=ysun;Password=Admin@1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
 

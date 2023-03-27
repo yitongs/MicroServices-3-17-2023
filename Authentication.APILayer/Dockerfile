@@ -2,6 +2,7 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
+ENV AuthenticationApiDbDocker="Data Source=192.168.1.179,1433,1433;Initial Catalog = AuthenticationAPI;Persist Security Info=True;User ID=sa;Password=Admin@1234; TrustServerCertificate=True;"                                                           
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build

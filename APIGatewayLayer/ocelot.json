@@ -4,7 +4,7 @@
         //Canidate controller
         {
             "UpstreamPathTemplate": "/api/candidate",
-            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -33,7 +33,7 @@
         //Recruiting api  -- jobrequirementcontroller
         {
             "UpstreamPathTemplate": "/api/jobrequirement",
-            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -45,7 +45,7 @@
         },
         {
             "UpstreamPathTemplate": "/api/jobrequirement/{id}",
-            "UpstreamHttpMethod": [ "Get", "Delete" ],
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -55,9 +55,60 @@
             ],
             "DownstreamPathTemplate": "/api/jobrequirement/{id}"
         },
+        //submission
+        {
+            "UpstreamPathTemplate": "/api/submission",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "recrutingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/submission"
+        },
+        {
+            "UpstreamPathTemplate": "/api/submission/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "recrutingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/submission/{id}"
+        },
+        //submissionstatus
+        {
+            "UpstreamPathTemplate": "/api/submissionStatus",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "recrutingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/submissionStatus"
+        },
+        {
+            "UpstreamPathTemplate": "/api/submissionStatus/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "recrutingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/submissionStatus/{id}"
+        },
+        //account
         {
             "UpstreamPathTemplate": "/api/Account",
-            "UpstreamHttpMethod": [ "Post" ],
+            "UpstreamHttpMethod": [ "Post", "GET", "Delete", "Put", "Options" ],
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -67,9 +118,10 @@
             ],
             "DownstreamPathTemplate": "/api/Account"
         },
+        //interviews
         {
             "UpstreamPathTemplate": "/api/Interviews",
-            "UpstreamHttpMethod": [ "Get" ],
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -83,7 +135,268 @@
                 "AllowedScopes": []
             }
 
+        },
+        {
+            "UpstreamPathTemplate": "/api/Interviews/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Interviews/{id}"
+        },
+        //interviewer
+        {
+            "UpstreamPathTemplate": "/api/Interviewer",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Interviewer",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
+        },
+        {
+            "UpstreamPathTemplate": "/api/Interviewer/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Interviewer/{id}"
+        },
+        //recruiter
+        {
+            "UpstreamPathTemplate": "/api/Recruiter",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Recruiter",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
+        },
+        {
+            "UpstreamPathTemplate": "/api/Recruiter/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Recruiter/{id}"
+        },
+        //feedback
+        {
+            "UpstreamPathTemplate": "/api/Feedback",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Feedback",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
+        },
+        {
+            "UpstreamPathTemplate": "/api/Feedback/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Feedback/{id}",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+        },
+        //interviewtype
+        {
+            "UpstreamPathTemplate": "/api/InterviewType",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/InterviewType",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
+        },
+        {
+            "UpstreamPathTemplate": "/api/InterviewType/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "interviewapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/InterviewType/{id}",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+        },
+        //employee
+        {
+            "UpstreamPathTemplate": "/api/Employee",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "onboardingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Employee",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
+        },
+        {
+            "UpstreamPathTemplate": "/api/Employee/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "onboardingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Employee/{id}"
+        },
+        //employeerole
+        {
+            "UpstreamPathTemplate": "/api/EmployeeRole",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "onboardingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/EmployeeRole",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
+        },
+        {
+            "UpstreamPathTemplate": "/api/EmployeeRole/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "onboardingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/EmployeeRole/{id}"
+        },
+        //emp status
+        {
+            "UpstreamPathTemplate": "/api/EmployeeStatus",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "onboardingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/EmployeeStatus",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
+        },
+        {
+            "UpstreamPathTemplate": "/api/EmployeeStatus/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "onboardingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/EmployeeStatus/{id}"
+        },
+        //employee type
+        {
+            "UpstreamPathTemplate": "/api/EmployeeType",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "onboardingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/EmployeeType",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+
+        },
+        {
+            "UpstreamPathTemplate": "/api/EmployeeType/{id}",
+            "UpstreamHttpMethod": [ "Get", "Delete", "Options" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "onboardingapi",
+                    "Port": 80
+                }
+            ],
+            "DownstreamPathTemplate": "/api/EmployeeType/{id}"
         }
+
 
     ],
     "GlobalConfiguration": {

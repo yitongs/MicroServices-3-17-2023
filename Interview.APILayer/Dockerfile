@@ -3,7 +3,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
-ENV InterviewApiDbDocker="Data Source=10.0.0.86,1433;Initial Catalog = InterviewApiDb;Persist Security Info=True;User ID=sa;Password=Admin@1234; TrustServerCertificate=True;"
+ENV InterviewApiDbDocker="Data Source=192.168.1.179,1433,1433;Initial Catalog = InterviewApiDb;Persist Security Info=True;User ID=sa;Password=Admin@1234; TrustServerCertificate=True;"
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src

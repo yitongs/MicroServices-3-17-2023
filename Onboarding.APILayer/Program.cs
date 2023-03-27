@@ -34,9 +34,10 @@ builder.Services.AddCors(options =>
     });
 });
 var app = builder.Build();
-app.UseRouting();//middleware
-app.UseEndpoints(endpoint => { endpoint.MapControllers(); });
+app.UseRouting();
 app.UseCors();
+app.UseEndpoints(endpoint => { endpoint.MapControllers(); });
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

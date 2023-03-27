@@ -28,15 +28,7 @@ namespace JwtAuthenticationManager
             };
         }
         public AuthenticationResponseModel GenerateJwtToken(AuthenticationRequestModel authenticationRequestModel) {
-            if (authenticationRequestModel == null)
-                return null;
-            if(string.IsNullOrEmpty(authenticationRequestModel.Username) || string.IsNullOrEmpty(authenticationRequestModel.Password))
-                return null;
-
-            var accountInfo = accounts.Where(X => X.Username == authenticationRequestModel.Username && X.Password == authenticationRequestModel.Password).FirstOrDefault();
-            if (accountInfo == null)
-                return null;
-
+           
             /* code for jwt token generation */
 
             var tokenExpiryTimeStamp = DateTime.Now.AddMinutes(JWT_Token_Valid_Mins);
@@ -46,7 +38,7 @@ namespace JwtAuthenticationManager
                 new List<Claim>
                 {
                     new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Name,authenticationRequestModel.Username),
-                    new Claim(ClaimTypes.Role,accountInfo.Role)
+                    new Claim(ClaimTypes.Role,"Default")
                 } );
             var signInCredentials = new SigningCredentials(
                 new SymmetricSecurityKey(tokenKey),

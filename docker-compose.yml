@@ -18,6 +18,7 @@ services:
 
   onboarding.apilayer:
     image: ${DOCKER_REGISTRY-}onboardingapilayer
+    hostname: "onboardingapi"
     build:
       context: .
       dockerfile: Onboarding.APILayer/Dockerfile
